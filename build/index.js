@@ -71,11 +71,31 @@ document.addEventListener("DOMContentLoaded", function () {
     let dailyCashArray = [];    
     let days = Array.from({ length: Math.ceil(daysToBurn) }, (_, i) => i + 1);
     
+    // if (days.length < 365) {
+
+    // } else if (days.length < 1095) {
+
+    // } else if (days.length < 3650) {
+
+    // } else {
+
+    // }
+    
     // Loop through each day and calculate the remaining cash
     days.forEach(day => {
         const remainingCash = Math.max(0, initialCash - day * burnRate); // Ensure cash doesn't go below 0
-        dailyCashArray.push({ day, cash: remainingCash });
+        // let currentDay = removeTime();
+        // currentDay.setDate( currentDay.getDate() + ( day - 1 ));
+        let currentDay = moment().add((day-1), 'days').format('D-MM-YYYY');
+
+        if (day < 5) {
+          console.log(currentDay)
+        }
+
+        dailyCashArray.push({ day: currentDay, cash: remainingCash.toFixed(0) });
     });
+
+    console.log(dailyCashArray)
 
     plotChart(dailyCashArray);
   }
@@ -88,25 +108,14 @@ document.addEventListener("DOMContentLoaded", function () {
           labels: data.map(row => row.day),
           datasets: [
             {
-              label: "Cash/Runway Remaining",
+              label: "Runway",
               data: data.map(row => row.cash),
-              backgroundColor: "rgba(255, 99, 132, 0.2)",
+              backgroundColor: "#ea580c",
               borderColor: "rgba(255, 99, 132, 1)",
               borderWidth: 1,
             },
           ],
-        },
-        options: {
-          scales: {
-            x: {
-              type: "linear",
-              position: "bottom",
-            },
-            y: {
-              min: 0,
-            },
-          },
-        },
+        }
       };
   
       // Create chart
@@ -120,3 +129,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 });
+
+function removeTime(date = new Date()) {
+  return new Date(
+    date.getFullYear(),
+    date.getMonth(),
+    date.getDate()
+  );
+}
