@@ -1,0 +1,12 @@
+{
+  "name": "runway-calculator",
+  "version": "2023.12.1",
+  "main": "tailwind.config.js",
+  "scripts": {
+    "tailwind": "npx tailwindcss -i ./src/input.css -o ./build/css/style.css --watch"
+  },
+  "dependencies": {
+    "chart.js": "^4.4.0",
+    "tailwind": "^4.0.0"
+  }
+}

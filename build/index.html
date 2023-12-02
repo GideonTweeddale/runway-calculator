@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Runway Calculator - How Long Can You Go</title>
+  <meta name="description" content="When will I/you run out of cash. How long can you go without earning?"/>
+  <link rel="stylesheet" type="text/css" href="css\style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script> 
+  <script type="module" src="index.js"></script>
+</head>
+<body class="p-8 bg-gray-900 text-white min-h-screen">
+
+  <main>
+
+    <header class="flex flex-col justify-between">
+      <h1 class="mt-5 mb-4 mx-auto min-w-fit text-2xl sm:text-3xl">🔥 Runway <span class="text-orange-600">Burn</span> Calculator 🔥</h1>
+      <h3 class="mb-12 mx-auto min-w-fit text-xl sm:text-1xl opacity-75">How Long Can You Go Without <span class="text-green-600">Earning</span>? When Will You <span class="text-orange-600">Run Out</span> of Cash 💸?</h1>
+    </header>
+  
+    <section id="hero" class="flex justify-center flex-col md:flex-row gap-1 md:gap-28 w-full">
+      <!-- <section id="hero" class="grid grid-cols-1 lg:grid-cols-2 gap-2"> -->
+
+      <div id="calculator-container" class="max-w-fit min-w-fit flex-grow-0">
+    
+        <!-- Input Section -->
+        <div class="mb-8">
+          <label class="block mb-2 text-xl" for="cash">💸 <span class="text-green-600">Cash</span> Runway</label>
+          <input type="number" id="cash" name="cash" class="w-full p-4 mb-4 bg-gray-800 text-white rounded-lg" placeholder="Enter cash amount" value="10000">
+    
+          <label class="block mb-2 text-xl" for="burnRate">🔥 Daily Burn</span> Rate</label>
+          <input type="number" id="burnRate" name="burnRate" class="w-full p-4 mb-4 bg-gray-800 text-white rounded-lg" placeholder="Enter daily burn rate" value="50">
+    
+          <h2 class="text-xl mb-2 mt-5">⏳ <span class="text-green-600">Time</span> to <span class="text-orange-600">Burn</span></h2>
+          <div class="bg-gray-800 rounded-lg">
+            
+            <div id="result-years" class="p-4">Calculating Years...</div>
+            <!-- <div id="result-months" class="p-4">Calculating Months...</div> -->
+            <div id="result-weeks" class="p-4">Calculating Weeks...</div>
+            <div id="result-days" class="p-4">Calculating Days...</div>
+            <div id="result-hours" class="p-4">Calculating Hours...</div>
+            <div id="result-minutes" class="p-4">Calculating Minutes...</div>
+            <div id="result-seconds" class="p-4">Calculating Seconds...</div>
+
+          </div>
+        </div>
+    
+      </div>
+    
+      <!-- Output Section -->
+      <div class="chart-container flex-grow flex-shrink max-w-6xl min-w-0">
+    
+        <!-- Graph Section -->
+        <h2 class="text-xl mb-2">⏳>🔥 <span class="text-orange-600">Burn</span> Progress</h2>
+        <canvas id="graph" class="bg-gray-800 p-4 rounded-lg">Graph will be generated here</canvas>
+    
+      </div>
+
+    </section>
+  
+    <footer>
+      <p class="text-center p-3 mt-8">
+        <a href="https://tweeddale.io" target="_blank" class="underline text-orange-600">My Website</a> | <a href="https://twitter.com/home" target="_blank" class="underline text-orange-600">My Twitter</a>
+      </p>
+    </footer>
+
+  </main>
+</body>
+</html>
