@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const resultHours = document.getElementById("result-hours");
   const resultMinutes = document.getElementById("result-minutes");
   const resultSeconds = document.getElementById("result-seconds");
+  const burnDate = document.getElementById("burn-date");
 
   // Event listener on input change
   cashInput.addEventListener("input", updateResults);
@@ -41,6 +42,9 @@ document.addEventListener("DOMContentLoaded", function () {
         const hoursToBurn = daysToBurn * 24;
         const minutesToBurn = hoursToBurn * 60;
         const secondsToBurn = minutesToBurn * 60;
+
+        // display burn date
+        burnDate.innerHTML = `<span class="text-orange-600">${dailyCashSet[daysToBurn - 1].day}</span>`;
            
         // Display time to burn
         resultYears.innerHTML = `Time to burn: <span class="text-green-600">${yearsToBurn.toFixed(1)}</span> years`;
@@ -60,6 +64,8 @@ document.addEventListener("DOMContentLoaded", function () {
   
         // Generate graph
         destroyChart();
+
+        burnDate.innerHTML = "💰💰💰💰💰💰💰💰💰💰";
   
         resultYears.innerHTML = `Time to burn: <span class="text-green-600">infinite</span> years`;
         resultMonths.innerHTML = `Time to burn: <span class="text-green-600">infinite</span> months`;
