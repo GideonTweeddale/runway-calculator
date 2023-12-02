@@ -600,6 +600,22 @@ video {
   min-width: fit-content;
 }
 
+.min-w-\[200px\] {
+  min-width: 200px;
+}
+
+.min-w-\[20\%\] {
+  min-width: 20%;
+}
+
+.min-w-\[50\%\] {
+  min-width: 50%;
+}
+
+.min-w-\[10\%\] {
+  min-width: 10%;
+}
+
 .max-w-6xl {
   max-width: 72rem;
 }
@@ -626,6 +642,10 @@ video {
 
 .flex-col {
   flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
 }
 
 .justify-center {
@@ -729,6 +749,10 @@ video {
     width: 18rem;
   }
 
+  .md\:w-80 {
+    width: 20rem;
+  }
+
   .md\:max-w-fit {
     max-width: -moz-fit-content;
     max-width: fit-content;
@@ -738,13 +762,52 @@ video {
     flex-direction: row;
   }
 
+  .md\:flex-wrap {
+    flex-wrap: wrap;
+  }
+
+  .md\:justify-normal {
+    justify-content: normal;
+  }
+
   .md\:gap-12 {
     gap: 3rem;
   }
 }
 
 @media (min-width: 1024px) {
+  .lg\:w-72 {
+    width: 18rem;
+  }
+
+  .lg\:max-w-fit {
+    max-width: -moz-fit-content;
+    max-width: fit-content;
+  }
+
   .lg\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .lg\:flex-row {
+    flex-direction: row;
+  }
+
+  .lg\:flex-nowrap {
+    flex-wrap: nowrap;
+  }
+
+  .lg\:gap-12 {
+    gap: 3rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .xl\:flex-nowrap {
+    flex-wrap: nowrap;
+  }
+
+  .xl\:justify-center {
+    justify-content: center;
   }
 }
