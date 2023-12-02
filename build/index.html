@@ -15,27 +15,29 @@
 
     <header class="flex flex-col justify-between">
       <h1 class="mt-5 mb-4 mx-auto min-w-fit text-2xl sm:text-3xl">🔥 Runway <span class="text-orange-600">Burn</span> Calculator 🔥</h1>
-      <h3 class="mb-12 mx-auto min-w-fit text-xl sm:text-1xl text-gray-400">How Long Can You Go Without <span class="text-green-600">Earning</span>? When Will You <span class="text-orange-600">Run Out</span> of Cash 💸?</h1>
+      <h3 class="mb-12 mx-auto min-w-fit text-xl sm:text-1xl text-gray-400">Thinking About Quitting Your Job? How Long Can You Go Without <span class="text-green-600">Earning</span>? When Will You <span class="text-orange-600">Run Out</span> of Cash 💸?</h1>
     </header>
   
-    <section id="hero" class="flex justify-center flex-col md:flex-row gap-1 md:gap-28 w-full">
+    <section id="hero" class="flex justify-center flex-col md:flex-row gap-1 md:gap-12 w-full">
       <!-- <section id="hero" class="grid grid-cols-1 lg:grid-cols-2 gap-2"> -->
 
-      <div id="calculator-container" class="max-w-max md:max-w-fit min-w-fit flex-grow-0">
+      <div id="calculator-container" class="max-w-full md:max-w-fit min-w-fit flex-grow-0">
     
         <!-- Input Section -->
-        <div class="mb-8">
+        <div class="mb-8 md:w-72">
           <label class="block mb-2 text-xl" for="cash">💸 <span class="text-green-600">Cash</span> Runway</label>
           <input type="number" id="cash" name="cash" class="w-full p-4 mb-4 bg-gray-800 text-white rounded-lg" placeholder="Enter cash amount" value="10000">
     
-          <label class="block mb-2 text-xl" for="burnRate">🔥 Daily Burn</span> Rate</label>
+          <label class="block mb-2 text-xl" for="burnRate">🔥 Daily <span class="text-orange-600">Burn</span> Rate</label>
           <input type="number" id="burnRate" name="burnRate" class="w-full p-4 mb-4 bg-gray-800 text-white rounded-lg" placeholder="Enter daily burn rate" value="50">
+    
+          <label class="block mb-2 text-xl" for="income">💰 Weekly <span class="text-green-600">Income</span></label>
+          <input type="number" id="income" name="income" class="w-full p-4 mb-4 bg-gray-800 text-white rounded-lg" placeholder="Enter weekly income" value="100">
     
           <h2 class="text-xl mb-2 mt-5">⏳ <span class="text-green-600">Time</span> to <span class="text-orange-600">Burn</span></h2>
           <div class="bg-gray-800 rounded-lg">
             
             <div id="result-years" class="p-4">Calculating Years...</div>
-            <!-- <div id="result-months" class="p-4">Calculating Months...</div> -->
             <div id="result-weeks" class="p-4">Calculating Weeks...</div>
             <div id="result-days" class="p-4">Calculating Days...</div>
             <div id="result-hours" class="p-4">Calculating Hours...</div>
