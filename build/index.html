@@ -18,7 +18,7 @@
 
     <header class="flex flex-col justify-between">
       <h1 class="mt-5 mb-4 mx-auto min-w-fit text-2xl sm:text-3xl">🔥 Runway <span class="text-orange-600">Burn</span> Calculator 🔥</h1>
-      <h3 class="mb-12 mx-auto min-w-fit text-xl sm:text-1xl text-gray-400">Thinking About Quitting Your Job to build something? How Long Can You Go Without <span class="text-green-600">Earning</span>? When Will You <span class="text-orange-600">Run Out</span> of Cash 💸?</h1>
+      <h3 class="mb-12 mx-auto min-w-fit text-xl sm:text-1xl text-gray-400">Thinking About <span class="text-green-600">Quitting</span> Your Job to <span class="text-green-600">Build</span> A Thing? How Long Can You Go Without <span class="text-green-600">Earning</span>? When Will You <span class="text-orange-600">Run Out</span> of Cash 💸?</h1>
 
       <h1 id="burn-date" class="mb-12 mx-auto min-w-fit text-2xl sm:text-3xl ">Calculating <span class="text-orange-600">burn</span> date...</h1>
     </header>
@@ -84,29 +84,29 @@
   </main>
   
   <!-- Floating Button Container -->
-  <div id="floating-help-button-container" class="m-0 p-0 fixed bottom-5 right-5 z-[999] hidden">
+  <div id="feedback-button-container" class="m-0 p-0 fixed bottom-5 right-5 z-[999]">
       <!-- Floating Button Icon -->
-      <div id="floating-help-button" class="w-12 h-12 bg-orange-600 hover:bg-orange-400 rounded-full cursor-pointer shadow-2xl flex items-center justify-center text-white font-semibold text-2xl">?</div>
+      <div id="feedback-button" class="w-12 h-12 bg-orange-600 hover:bg-orange-400 rounded-full cursor-pointer shadow-2xl flex items-center justify-center text-white font-semibold text-2xl">?</div>
   </div>
 
   <!-- Feedback Form Container -->
-  <div id="feedback-form" class="max-w-md mx-auto bg-gray-800 p-6 rounded-lg shadow-lg hidden">
+  <div id="feedback-form-container" class="max-w-md bg-gray-700 rounded-lg shadow-lg border border-black m-0 p-3 fixed bottom-5 right-5 z-[999] hidden">
     <h2 class="text-2xl font-semibold mb-6">Please send me your feedback</h2>
 
-    <!-- Email Address Input -->
-    <div class="mb-4">
-        <label for="email" class="block text-gray-400 text-sm font-bold mb-2">Email Address:</label>
-        <input type="email" id="email" name="email" class="w-full px-4 py-2 border bg-gray-700 border-gray-700 rounded-lg focus:outline-none focus:border-orange-600" placeholder="example@example.com" required>
-    </div>
+    <form id="feedback-form">
+      
+      <!-- Email Address Input -->
+      <label for="email" class="block text-gray-400 text-sm font-bold mb-2">Email Address:</label>
+      <input type="email" id="email" name="email" class="w-full px-4 py-2 mb-4 border bg-gray-800 border-gray-800 rounded-lg focus:outline-none focus:border-orange-600" placeholder="example@example.com" required>
+  
+      <!-- Large Text Input Field -->
+      <label for="message" class="block text-gray-400 text-sm font-bold mb-2">Message:</label>
+      <textarea id="message" name="message" rows="5" class="w-full px-4 py-2 mb-4 border bg-gray-800 border-gray-800 rounded-lg focus:outline-none focus:border-orange-600" placeholder="Good ideas go here... Please be nice!" required></textarea>
 
-    <!-- Large Text Input Field -->
-    <div class="mb-4">
-        <label for="message" class="block text-gray-400 text-sm font-bold mb-2">Message:</label>
-        <textarea id="message" name="message" rows="5" class="w-full px-4 py-2 border bg-gray-700 border-gray-700 rounded-lg focus:outline-none focus:border-orange-600" placeholder="Good ideas go here... Please be nice!" required></textarea>
-    </div>
+      <!-- Submit Button -->
+      <input id="submit-button" type="submit" form="feedback-form" class="w-full bg-orange-600 text-white p-3 rounded-md hover:bg-orange-400 focus:outline-none focus:shadow-outline-blue"/>
 
-    <!-- Submit Button -->
-    <button id="submit" type="submit" class="w-full bg-orange-600 text-white p-3 rounded-md hover:bg-orange-400 focus:outline-none focus:shadow-outline-blue">Send</button>
+    </form>
 </div>
   
 </body>

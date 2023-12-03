@@ -17,8 +17,8 @@ document.addEventListener("DOMContentLoaded", function () {
   cashInput.addEventListener("input", updateResults);
   burnRateInput.addEventListener("input", updateResults);
   incomeInput.addEventListener("input", updateResults);
-  document.getElementById("floating-help-button").addEventListener("click", helpButton)
-  document.getElementById("submit").addEventListener("click", submitFeedback)
+  document.getElementById("feedback-button").addEventListener("click", helpButton)
+  document.getElementById("feedback-form").addEventListener("submit", submitFeedback)
 
   // initial chart
   plotChart([])
@@ -150,12 +150,39 @@ function removeTime(date = new Date()) {
 }
 
 function helpButton() {
-  // document.getElementById("feedback-form").style.display = "block";
-  document.getElementById("floating-help-button").style.display = "none";
+  const feedbackFormContainer = document.getElementById("feedback-form-container");
+
+  feedbackFormContainer.style.display = "block";
+  document.getElementById("feedback-button-container").style.display = "none";
 }
 
-function submitFeedback() {
-  document.getElementById("feedback-form").style.display = "none";
-  // document.getElementById("floating-help-button").style.display = "block";
+function submitFeedback(e) {
+  e.preventDefault();
 
+  const email = document.getElementById("email").value;
+  const message = document.getElementById("message").value;
+
+  sendFeedback(email, message);
+
+  console.log(`Submitting '${message}' from ${email}`)
+  document.getElementById("feedback-form-container").style.display = "none";
+  document.getElementById("feedback-button-container").style.display = "block";
+}
+
+async function sendFeedback(email, message) {
+  const url = `https://c7djpnfyzgoiahq27qs3v2cale0jmobg.lambda-url.us-east-1.on.aws/feedback?email=${email}&message=${message}`;
+
+  try {
+    const response = await fetch(url, {
+      method: 'POST'
+    })
+
+    if (!response.ok) {
+      console.error('Sending feedback failed with response: ', response.status, response.message);   
+    }
+
+    console.log("Feedback sent.");
+  } catch (error) {
+    console.error('Sending feedback failed with error: ', error.message);    
+  }
 }
