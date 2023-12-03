@@ -1,3 +1,6 @@
+// Constants
+const _AVERAGE_DAYS_IN_A_MONTH = 30.4167;
+
 // JavaScript for calculating time and generating graph
 document.addEventListener("DOMContentLoaded", function () {
   // Selecting elements
@@ -37,37 +40,11 @@ document.addEventListener("DOMContentLoaded", function () {
       // Calculate time to burn
       const daysToBurn = dailyCashSet.length;
 
-      if (daysToBurn < 3651) {
-        const yearsToBurn = daysToBurn / 365;
-        const monthToBurn = yearsToBurn * 12;
-        const weeksToBurn = daysToBurn / 7;
-        const hoursToBurn = daysToBurn * 24;
-        const minutesToBurn = hoursToBurn * 60;
-        const secondsToBurn = minutesToBurn * 60;
-
-        // display burn date
-        burnDate.innerHTML = `<span class="text-orange-600">${moment(dailyCashSet[daysToBurn - 1].day, 'D-MM-YYYY').format("MMMM Do YYYY")}</span>`;
-           
-        // Display time to burn
-        resultYears.innerHTML = `Time to burn: <span class="text-green-600">${yearsToBurn.toFixed(1)}</span> years`;
-        resultMonths.innerHTML = `Time to burn: <span class="text-green-600">${monthToBurn.toFixed(1)}</span> months`;
-        resultWeeks.innerHTML = `Time to burn: <span class="text-green-600">${weeksToBurn.toFixed(1)}</span> weeks`;
-        resultDays.innerHTML = `Time to burn: <span class="text-green-600">${daysToBurn.toFixed(1)}</span> days`;
-        resultHours.innerHTML = `Time to burn: <span class="text-green-600">${hoursToBurn.toFixed(0)}</span> hours`;
-        resultMinutes.innerHTML = `Time to burn: <span class="text-green-600">${minutesToBurn.toFixed(0)}</span> minutes`;
-        resultSeconds.innerHTML = `Time to burn: <span class="text-green-600">${secondsToBurn.toFixed(0)}</span> seconds`;
-      
-        // Generate graph
-        destroyChart();
-        plotChart(dailyCashSet);
-      }
-      else {
+      if ( ( dailySpend * _AVERAGE_DAYS_IN_A_MONTH ) < monthlyIncome ) {
+        
         console.log("You aren't going to run out of money.")
-  
-        // Generate graph
-        destroyChart();
 
-        burnDate.innerHTML = "💰💰💰💰💰💰💰💰💰💰";
+        burnDate.innerHTML = '💰 <span class="text-green-600">NEVER</span> 🔥';
   
         resultYears.innerHTML = `Time to burn: <span class="text-green-600">infinite</span> years`;
         resultMonths.innerHTML = `Time to burn: <span class="text-green-600">infinite</span> months`;
@@ -76,6 +53,51 @@ document.addEventListener("DOMContentLoaded", function () {
         resultHours.innerHTML = `Time to burn: <span class="text-green-600">infinite</span> hours`;
         resultMinutes.innerHTML = `Time to burn: <span class="text-green-600">infinite</span> mintes`;
         resultSeconds.innerHTML = `Time to burn: <span class="text-green-600">infinite</span> seconds`;
+
+        destroyChart();
+
+      } else {
+        
+        if (daysToBurn < 3651) {
+ 
+         const yearsToBurn = daysToBurn / 365;
+         const monthToBurn = yearsToBurn * 12;
+         const weeksToBurn = daysToBurn / 7;
+         const hoursToBurn = daysToBurn * 24;
+         const minutesToBurn = hoursToBurn * 60;
+         const secondsToBurn = minutesToBurn * 60;
+ 
+         // display burn date
+         burnDate.innerHTML = `💰 <span class="text-orange-600">${moment(dailyCashSet[daysToBurn - 1].day, 'D-MM-YYYY').format("MMMM Do YYYY")}</span> 🔥`;
+            
+         // Display time to burn
+         resultYears.innerHTML = `Time to burn: <span class="text-green-600">${yearsToBurn.toFixed(1)}</span> years`;
+         resultMonths.innerHTML = `Time to burn: <span class="text-green-600">${monthToBurn.toFixed(1)}</span> months`;
+         resultWeeks.innerHTML = `Time to burn: <span class="text-green-600">${weeksToBurn.toFixed(1)}</span> weeks`;
+         resultDays.innerHTML = `Time to burn: <span class="text-green-600">${daysToBurn.toFixed(1)}</span> days`;
+         resultHours.innerHTML = `Time to burn: <span class="text-green-600">${hoursToBurn.toFixed(0)}</span> hours`;
+         resultMinutes.innerHTML = `Time to burn: <span class="text-green-600">${minutesToBurn.toFixed(0)}</span> minutes`;
+         resultSeconds.innerHTML = `Time to burn: <span class="text-green-600">${secondsToBurn.toFixed(0)}</span> seconds`;
+       
+       }
+       else {  
+ 
+         burnDate.innerHTML = '💰 <span class="text-green-600">10+ Years of</span> 🔥';
+   
+         resultYears.innerHTML = `Time to burn: <span class="text-green-600">10+</span> years`;
+         resultMonths.innerHTML = `Time to burn: <span class="text-green-600">120+</span> months`;
+         resultWeeks.innerHTML = `Time to burn: <span class="text-green-600">520+</span> weeks`;
+         resultDays.innerHTML = `Time to burn: <span class="text-green-600">3650+</span> days`;
+         resultHours.innerHTML = `Time to burn: <span class="text-green-600">87600+</span> hours`;
+         resultMinutes.innerHTML = `Time to burn: <span class="text-green-600">5256000+</span> mintes`;
+         resultSeconds.innerHTML = `Time to burn: <span class="text-green-600">315360000+</span> seconds`;
+ 
+       }
+ 
+       // Generate graph
+       destroyChart();
+       plotChart(dailyCashSet);
+
       }
     } 
   }
