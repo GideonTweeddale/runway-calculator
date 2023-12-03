@@ -150,12 +150,12 @@ function removeTime(date = new Date()) {
 }
 
 function helpButton() {
-  document.getElementById("feedback-form").style.display = "block";
+  // document.getElementById("feedback-form").style.display = "block";
   document.getElementById("floating-help-button").style.display = "none";
 }
 
 function submitFeedback() {
   document.getElementById("feedback-form").style.display = "none";
-  document.getElementById("floating-help-button").style.display = "block";
+  // document.getElementById("floating-help-button").style.display = "block";
 
 }
