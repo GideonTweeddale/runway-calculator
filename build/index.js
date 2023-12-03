@@ -17,6 +17,8 @@ document.addEventListener("DOMContentLoaded", function () {
   cashInput.addEventListener("input", updateResults);
   burnRateInput.addEventListener("input", updateResults);
   incomeInput.addEventListener("input", updateResults);
+  document.getElementById("floating-help-button").addEventListener("click", helpButton)
+  document.getElementById("submit").addEventListener("click", submitFeedback)
 
   // initial chart
   plotChart([])
@@ -44,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const secondsToBurn = minutesToBurn * 60;
 
         // display burn date
-        burnDate.innerHTML = `<span class="text-orange-600">${dailyCashSet[daysToBurn - 1].day}</span>`;
+        burnDate.innerHTML = `<span class="text-orange-600">${moment(dailyCashSet[daysToBurn - 1].day, 'D-MM-YYYY').format("MMMM Do YYYY")}</span>`;
            
         // Display time to burn
         resultYears.innerHTML = `Time to burn: <span class="text-green-600">${yearsToBurn.toFixed(1)}</span> years`;
@@ -145,4 +147,15 @@ function removeTime(date = new Date()) {
     date.getMonth(),
     date.getDate()
   );
+}
+
+function helpButton() {
+  document.getElementById("feedback-form").style.display = "block";
+  document.getElementById("floating-help-button").style.display = "none";
+}
+
+function submitFeedback() {
+  document.getElementById("feedback-form").style.display = "none";
+  document.getElementById("floating-help-button").style.display = "block";
+
 }

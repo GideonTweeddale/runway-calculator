@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Runway Calculator - How Long Can You Go</title>
-  <meta name="description" content="When will I/you run out of cash. How long can you go without earning?"/>
+  <meta name="description" content="When will I run out of cash. How long can I go without earning?"/>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>">
   <link rel="stylesheet" type="text/css" href="css\style.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script> 
@@ -18,9 +18,9 @@
 
     <header class="flex flex-col justify-between">
       <h1 class="mt-5 mb-4 mx-auto min-w-fit text-2xl sm:text-3xl">🔥 Runway <span class="text-orange-600">Burn</span> Calculator 🔥</h1>
-      <h3 class="mb-12 mx-auto min-w-fit text-xl sm:text-1xl text-gray-400">Thinking About Quitting Your Job? How Long Can You Go Without <span class="text-green-600">Earning</span>? When Will You <span class="text-orange-600">Run Out</span> of Cash 💸?</h1>
+      <h3 class="mb-12 mx-auto min-w-fit text-xl sm:text-1xl text-gray-400">Thinking About Quitting Your Job to build something? How Long Can You Go Without <span class="text-green-600">Earning</span>? When Will You <span class="text-orange-600">Run Out</span> of Cash 💸?</h1>
 
-      <h1 id="burn-date" class="mb-12 mx-auto min-w-fit text-2xl sm:text-3xl uppercase">Calculating <span class="text-orange-600">burn</span> date...</h1>
+      <h1 id="burn-date" class="mb-12 mx-auto min-w-fit text-2xl sm:text-3xl ">Calculating <span class="text-orange-600">burn</span> date...</h1>
     </header>
   
     <section id="hero" class="flex justify-center md:justify-normal xl:justify-center flex-col md:flex-row md:flex-wrap xl:flex-nowrap gap-1 md:gap-12 w-full">
@@ -82,5 +82,32 @@
     </footer>
 
   </main>
+  
+  <!-- Floating Button Container -->
+  <div id="floating-help-button-container" class="m-0 p-0 fixed bottom-5 right-5 z-[999]">
+      <!-- Floating Button Icon -->
+      <div id="floating-help-button" class="w-12 h-12 bg-orange-600 hover:bg-orange-400 rounded-full cursor-pointer shadow-2xl flex items-center justify-center text-white font-semibold text-2xl">?</div>
+  </div>
+
+  <!-- Feedback Form Container -->
+  <div id="feedback-form" class="max-w-md mx-auto bg-gray-800 p-6 rounded-lg shadow-lg hidden">
+    <h2 class="text-2xl font-semibold mb-6">Please send me your feedback</h2>
+
+    <!-- Email Address Input -->
+    <div class="mb-4">
+        <label for="email" class="block text-gray-400 text-sm font-bold mb-2">Email Address:</label>
+        <input type="email" id="email" name="email" class="w-full px-4 py-2 border bg-gray-700 border-gray-700 rounded-lg focus:outline-none focus:border-orange-600" placeholder="example@example.com" required>
+    </div>
+
+    <!-- Large Text Input Field -->
+    <div class="mb-4">
+        <label for="message" class="block text-gray-400 text-sm font-bold mb-2">Message:</label>
+        <textarea id="message" name="message" rows="5" class="w-full px-4 py-2 border bg-gray-700 border-gray-700 rounded-lg focus:outline-none focus:border-orange-600" placeholder="Good ideas go here... Please be nice!" required></textarea>
+    </div>
+
+    <!-- Submit Button -->
+    <button id="submit" type="submit" class="w-full bg-orange-600 text-white p-3 rounded-md hover:bg-orange-400 focus:outline-none focus:shadow-outline-blue">Send</button>
+</div>
+  
 </body>
 </html>
