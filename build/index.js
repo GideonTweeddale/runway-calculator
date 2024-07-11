@@ -209,7 +209,7 @@ function submitFeedback(e) {
 }
 
 async function sendFeedback(email, message) {
-  const url = `https://c7djpnfyzgoiahq27qs3v2cale0jmobg.lambda-url.us-east-1.on.aws/burn-feedback?email=${email}&message=${message}`;
+  const url = `https://e3gczsxoyup4auvpscvnizt7re0xkjgg.lambda-url.us-east-1.on.aws/feedback?email=${email}&message=${message}`;
 
   try {
     const response = await fetch(url, {
